@@ -13,12 +13,12 @@ class WeatherForecast extends StatefulWidget {
 class _WeatherForecastState extends State<WeatherForecast> {
 
   Future<WeatherForecastModel> forecastObjects;
-  String _cityName = "Mumbai";
+  String _cityName = "London";
 
   @override
   void initState() {
     super.initState();
-    getWeather(cityName: _cityName);
+    forecastObjects = getWeather(cityName: _cityName);
   }
 
   @override
@@ -39,7 +39,7 @@ class _WeatherForecastState extends State<WeatherForecast> {
                   );
                 }else{
                   return Container(
-                    child: Center(child: Text(snapshot.error.toString())),
+                    child: Center(child: CircularProgressIndicator()),
                   );
                 }
               },
